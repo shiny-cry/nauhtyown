@@ -1,0 +1,221 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0d0d0d;
+    color: #f83cae;
+    font-family: "JetBrains Mono", monospace;
+}
+
+.parent {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+}
+
+.head {
+    text-align: center;
+}
+
+.ava img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #f83cae;
+    object-fit: cover;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-size: 2.4rem;
+    margin-bottom: 14px;
+    color: #f83cae;
+    transition: text-shadow .4s;
+    text-shadow: 0 0 2px #f83cae;
+}
+
+h1.glow {
+    animation: neonPulse .9s infinite ease-in-out alternate;
+}
+
+@keyframes neonPulse {
+    0% {
+        text-shadow: 0 0 2px #f83cae;
+    }
+    100% {
+        text-shadow: 0 0 8px #f83cae;
+    }
+}
+
+.terminal {
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+    min-height: 1.4em;
+}
+
+.cursor {
+    display: inline-block;
+    vertical-align: bottom;
+    animation: blink .8s steps(1) infinite;
+}
+
+@keyframes blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    50.1%, 100% {
+        opacity: 0;
+    }
+}
+
+.buttons {
+    opacity: 0;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    transition: opacity .9s ease;
+}
+
+.buttons.show {
+    opacity: 1;
+}
+
+.btn {
+    width: 120px;
+    height: 36px;
+    background: #000;
+    border: 2px solid #f83cae;
+    color: #f83cae;
+    border-radius: 6px;
+    cursor: pointer;
+    outline: none;
+    transition: all .18s;
+    text-shadow: 0 0 5px #00ffcc;
+}
+
+.btn:hover {
+    background: #f83cae;
+    color: #ab19be;
+    font-weight: 600;
+    box-shadow: 0 0 10px #f83cae;
+}
+
+.audio-box {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.mute-btn {
+    width: 70px;
+    height: 32px;
+    background: #000;
+    border: 2px solid #f83cae;
+    color: #f83cae;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background .2s, box-shadow .2s;
+}
+
+.mute-btn.active {
+    background: #f83cae;
+    color: #001217;
+    box-shadow: 0 0 12px #f83cae;
+}
+
+#volume-slider {
+    appearance: none;
+    width: 0;
+    height: 8px;
+    background: #001216;
+    border-radius: 6px;
+    outline: none;
+    box-shadow: inset 0 0 6px #760c4b;
+    transition: width .3s ease, opacity .3s ease;
+    opacity: 0;
+}
+
+.mute-btn:hover + #volume-slider,
+#volume-slider:hover {
+    width: 120px;
+    opacity: 1;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #f83cae;
+    box-shadow: 0 0 10px #f83cae;
+    border: none;
+    cursor: pointer;
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #f83cae;
+    border: none;
+    cursor: pointer;
+}
+
+.over {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.img img {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    border: 2px solid #f83cae;
+    object-fit: cover;
+}
+
+.audio-track {
+    width: 260px;
+    height: 10px;
+    background: #111;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.audio-track .progress {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #f83cae, #f83cae);
+    transition: width .08s linear;
+    box-shadow: 0 0 10px #f83cae;
+}
+.znak {
+    position: fixed;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #f83cae;
+    opacity: 0.55;
+    font-size: 1.1rem;
+    font-family: "JetBrains Mono", monospace;
+    text-shadow: 0 0 6px #f83cae;
+    transition: opacity .3s ease;
+    pointer-events: none;
+    margin-bottom: 70px;
+}
+
+.znak:hover {
+    opacity: 1;
+}
